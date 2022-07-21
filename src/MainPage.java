@@ -8,106 +8,133 @@ import net.proteanit.sql.DbUtils;
 import javax.swing.*;
 
 public class MainPage extends JFrame implements ActionListener {
-    ResultSet rs1;
-    ResultSet rsz;
-    ResultSet rs3;
+    ResultSet rs1,rsz,rs3;
     JTable table1;
-    JTable table2;
     JTextField SearchBar;
     JButton Search;
 
     MainPage() {
         this.setLayout((LayoutManager)null);
         this.getContentPane().setBackground(Color.pink);
+        
         ImageIcon image2 = new ImageIcon(ClassLoader.getSystemResource("images/MarketAuto.jpg"));
         JLabel miniature = new JLabel(image2);
         miniature.setBounds(0, 0, 82, 60);
         this.add(miniature);
+        
         ImageIcon background = new ImageIcon(ClassLoader.getSystemResource("images/MainPage.jpg"));
         ImageIcon backgroundSized = new ImageIcon(background.getImage().getScaledInstance(1000, 700, 1));
         JLabel backgroundlabel = new JLabel(backgroundSized);
         backgroundlabel.setBounds(0, 0, 1000, 700);
         this.add(backgroundlabel);
+    
+        ////////// MenuBar
+        
         JMenuBar menuBar = new JMenuBar();
         menuBar.setBounds(880, 0, 120, 30);
         backgroundlabel.add(menuBar);
+        
         JMenu Account = new JMenu("Account");
         Account.setPreferredSize(new Dimension(60, 30));
         menuBar.add(Account);
+        
         JMenu Supp = new JMenu("       ?");
         Supp.setPreferredSize(new Dimension(60, 30));
         menuBar.add(Supp);
+        
         JMenuItem Support = new JMenuItem("Support");
         Support.addActionListener(this);
         Support.setActionCommand(MainPage.Actions.SUPPORT.name());
         Support.setPreferredSize(new Dimension(57, 30));
         Supp.add(Support);
+        
         JMenuItem Add = new JMenuItem("Add a new ad");
         Add.addActionListener(this);
         Add.setActionCommand(MainPage.Actions.ADD.name());
         Account.add(Add);
+        
         JMenuItem See = new JMenuItem("See your ads");
         See.addActionListener(this);
         See.setActionCommand(MainPage.Actions.SEE.name());
         Account.add(See);
+        
         JMenuItem Delete = new JMenuItem("Delete Account");
         Delete.addActionListener(this);
         Delete.setActionCommand(MainPage.Actions.DELETE.name());
         Account.add(Delete);
+        
         JMenuItem Disc = new JMenuItem("Disconnect");
         Disc.addActionListener(this);
         Disc.setActionCommand(MainPage.Actions.DISC.name());
         Account.add(Disc);
+        
+        ///////// Labels
+        
         JLabel brand = new JLabel("Brand");
         brand.setBounds(160, 170, 80, 30);
         brand.setFont(new Font("serif", 3, 18));
         backgroundlabel.add(brand);
+        
         JLabel model = new JLabel("Model");
         model.setBounds(250, 170, 80, 30);
         model.setFont(new Font("serif", 3, 18));
         backgroundlabel.add(model);
+        
         JLabel year = new JLabel("Year");
         year.setBounds(340, 155, 100, 30);
         year.setFont(new Font("serif", 3, 15));
         backgroundlabel.add(year);
+        
         JLabel offab = new JLabel("of fabrication");
         offab.setBounds(325, 170, 100, 30);
         offab.setFont(new Font("serif", 3, 13));
         backgroundlabel.add(offab);
+        
         JLabel km = new JLabel("Km");
         km.setBounds(430, 170, 100, 30);
         km.setFont(new Font("serif", 3, 18));
         backgroundlabel.add(km);
+        
         JLabel transm = new JLabel("Transmission");
         transm.setBounds(500, 170, 100, 30);
         transm.setFont(new Font("serif", 3, 13));
         backgroundlabel.add(transm);
+        
         JLabel gas = new JLabel("Gas");
         gas.setBounds(600, 170, 100, 30);
         gas.setFont(new Font("serif", 3, 18));
         backgroundlabel.add(gas);
+        
         JLabel engine = new JLabel("Engine");
         engine.setBounds(690, 155, 100, 30);
         engine.setFont(new Font("serif", 3, 16));
         backgroundlabel.add(engine);
+        
         JLabel capacity = new JLabel("capacity");
         capacity.setBounds(685, 170, 100, 30);
         capacity.setFont(new Font("serif", 3, 14));
         backgroundlabel.add(capacity);
+        
         JLabel color = new JLabel("Color");
         color.setBounds(775, 170, 100, 30);
         color.setFont(new Font("serif", 3, 18));
         backgroundlabel.add(color);
+        
+        /////// Table and SearchBar
+        
         this.table1 = new JTable();
         this.table1.setBounds(150, 200, 700, 400);
         backgroundlabel.add(this.table1);
+        
         JLabel SearchText = new JLabel("Search for cars");
         SearchText.setBounds(150, 90, 200, 30);
         SearchText.setFont(new Font("Sanserif", 1, 22));
         backgroundlabel.add(SearchText);
+        
         this.SearchBar = new JTextField();
         this.SearchBar.setBounds(350, 90, 400, 25);
         backgroundlabel.add(this.SearchBar);
+        
         this.Search = new JButton("Search");
         this.Search.setBounds(750, 90, 80, 25);
         this.Search.addActionListener(this);
