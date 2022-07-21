@@ -14,54 +14,69 @@ public class NewAd extends JFrame implements ActionListener {
     NewAd() {
         this.setLayout((LayoutManager)null);
         this.getContentPane().setBackground(Color.pink);
+        
         ImageIcon image1 = new ImageIcon(ClassLoader.getSystemResource("images/sellcar.jpg"));
         JLabel largephoto = new JLabel(image1);
         largephoto.setBounds(650, 100, 300, 300);
         this.add(largephoto);
+        
         ImageIcon image2 = new ImageIcon(ClassLoader.getSystemResource("images/MarketAuto.jpg"));
         JLabel miniature = new JLabel(image2);
         miniature.setBounds(0, 0, 82, 60);
         this.add(miniature);
+     
+        //////// Labels
+        
         JLabel midtext = new JLabel("Create your own ad");
         midtext.setBounds(300, 20, 300, 30);
         midtext.setFont(new Font("SansSerif", 1, 30));
         this.add(midtext);
+        
         this.brand = new JLabel("Brand:");
         this.brand.setBounds(260, 85, 60, 30);
         this.brand.setFont(new Font("serif", 3, 20));
         this.add(this.brand);
+        
         this.model = new JLabel("Model:");
         this.model.setBounds(260, 115, 100, 30);
         this.model.setFont(new Font("serif", 3, 20));
         this.add(this.model);
+        
         this.yearoffab = new JLabel("Year of Fabrication:");
         this.yearoffab.setBounds(260, 150, 160, 30);
         this.yearoffab.setFont(new Font("serif", 3, 17));
         this.add(this.yearoffab);
+        
         this.km = new JLabel("Mileage(in km):");
         this.km.setBounds(260, 180, 140, 30);
         this.km.setFont(new Font("serif", 3, 18));
         this.add(this.km);
+        
         this.transm = new JLabel("Transmission:");
         this.transm.setBounds(260, 210, 110, 30);
         this.transm.setFont(new Font("serif", 3, 18));
         this.add(this.transm);
+        
         this.gastype = new JLabel("GasType:");
         this.gastype.setBounds(260, 240, 75, 30);
         this.gastype.setFont(new Font("serif", 3, 18));
         this.add(this.gastype);
+        
         this.capacity = new JLabel("Engine capacity(in cm³):");
         this.capacity.setBounds(260, 270, 180, 30);
         this.capacity.setFont(new Font("serfi", 3, 16));
         this.add(this.capacity);
+        
         this.color = new JLabel("Color:");
         this.color.setBounds(260, 300, 140, 30);
         this.color.setFont(new Font("serif", 3, 18));
         this.add(this.color);
+        
         JLabel checktxt = new JLabel("Agree to Terms and Conditions");
         checktxt.setBounds(260, 340, 200, 30);
         checktxt.setFont(new Font("serif", 3, 15));
         this.add(checktxt);
+        
         this.brand_choose = new Choice();
         this.brand_choose.setBounds(330, 91, 120, 25);
         this.brand_choose.add("Audi");
@@ -85,20 +100,25 @@ public class NewAd extends JFrame implements ActionListener {
         this.brand_choose.add("Volkswagen");
         this.brand_choose.add("Volvo");
         this.add(this.brand_choose);
+        
         this.model1 = new JTextField();
         this.model1.setBounds(330, 120, 130, 25);
         this.add(this.model1);
+        
         this.yearoffab1 = new JTextField();
         this.yearoffab1.setBounds(410, 154, 130, 25);
         this.add(this.yearoffab1);
+        
         this.km1 = new JTextField();
         this.km1.setBounds(385, 186, 130, 25);
         this.add(this.km1);
+        
         this.transm1 = new Choice();
         this.transm1.setBounds(370, 216, 140, 25);
         this.transm1.add("Manual");
         this.transm1.add("Automatic");
         this.add(this.transm1);
+        
         this.gastype1 = new Choice();
         this.gastype1.setBounds(335, 245, 130, 25);
         this.gastype1.add("Diesel");
@@ -106,16 +126,22 @@ public class NewAd extends JFrame implements ActionListener {
         this.gastype1.add("Hybrid");
         this.gastype1.add("Electric");
         this.add(this.gastype1);
+        
         this.capacity1 = new JTextField();
         this.capacity1.setBounds(445, 275, 130, 25);
         this.add(this.capacity1);
+        
         this.color1 = new JTextField();
         this.color1.setBounds(315, 305, 130, 25);
         this.add(this.color1);
+        
         this.check = new JCheckBox();
         this.check.setBounds(460, 349, 20, 14);
         this.check.setBackground(Color.pink);
         this.add(this.check);
+        
+        ///////// Buttons
+        
         this.publish = new JButton("Publish");
         this.publish.setBounds(300, 400, 100, 30);
         this.publish.addActionListener(this);
@@ -123,6 +149,7 @@ public class NewAd extends JFrame implements ActionListener {
         this.publish.setForeground(Color.white);
         this.publish.setBackground(Color.black);
         this.add(this.publish);
+        
         this.cancel = new JButton("Cancel");
         this.cancel.setBounds(450, 400, 100, 30);
         this.cancel.addActionListener(this);
@@ -130,6 +157,7 @@ public class NewAd extends JFrame implements ActionListener {
         this.cancel.setForeground(Color.white);
         this.cancel.setBackground(Color.black);
         this.add(this.cancel);
+        
         this.setBounds(150, 30, 1015, 700);
         this.setVisible(true);
     }
